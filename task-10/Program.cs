@@ -10,7 +10,7 @@ int SecondNumber(int Number) //Метод второй цифры в числе
 {
     if (Number < 1000 && Number >= 100)
     {
-    Number = (Number % 100) / 10;
+    Number = (Number / 10) % 10;
     return Number;
     }
     else
