@@ -26,13 +26,22 @@ void PrintArray(int[] array)
     }
 }
 
-int GetSumNumber(int[] array)
+int GetMinNumber(int[] array)
 {
-    int result = 0;
-    for (int i = 1; i < array.Length; i = i + 2)
+    int result = array[0];
+    for (int i = 1; i < array.Length; i++)
     {
-        result = result + array[i];
+        if (array[i] < result) result = array[i];
+    }
+    return result;
+}
 
+int GetMaxNumber(int[] array)
+{
+    int result = array[0];
+    for (int i = 1; i < array.Length; i++)
+    {
+        if (array[i] > result) result = array[i];
     }
     return result;
 }
@@ -40,5 +49,5 @@ int GetSumNumber(int[] array)
 int[] randomArray = GetRandomArray(x);
 PrintArray(randomArray);
 Console.WriteLine();
-Console.WriteLine($"Сумма нечетных: {GetSumNumber(randomArray)}");
-
+int different = GetMaxNumber(randomArray) - GetMinNumber(randomArray);
+Console.WriteLine($"max - min = {different}");
