@@ -10,7 +10,7 @@ if (!isNum_x || !isNum_y || y < 0)
     return;
 }
 
-int GetDegree (int a, int b)
+int GetDegree(int a, int b)
 {
     int result = a;
     for (int i = 1; i < b; i++)
@@ -20,4 +20,4 @@ int GetDegree (int a, int b)
     return result;
 }
 
-Console.Write(GetDegree(x,y));
+Console.Write(GetDegree(x, y));
