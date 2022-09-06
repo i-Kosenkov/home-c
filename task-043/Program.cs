@@ -28,5 +28,6 @@ return array;
 
 double[] array = GetConnectPoint(b1,k1,b2,k2);
 
+//Так как в массиве всего 2 значения, решил обойтись без метода на печать массива!
 Console.Write($"Точка пересечения прямых ({array[0]}, ");
 Console.Write($"{array[1]})");
