@@ -1,18 +1,5 @@
-﻿//Заполнить двумерный массив
-void GetNumberDoubleArray(int[,] array)
-{
-    int n = 1;
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i, j] = n;
-            n++;
-        }
-    }
-}
+﻿//Напишите программу, которая заполнит спирально массив 4 на 4. 
 
-//печать двумерного массива
 void PrintDoubleArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
@@ -25,6 +12,40 @@ void PrintDoubleArray(int[,] array)
     }
 }
 
-int[,] array = new int[4, 4];
-GetNumberDoubleArray(array);
+void FillArray(int[,] array)
+{
+    int n = 11;
+    int i = 0;
+    int j = 0;
+    while (n <= array.GetLength(0) * array.GetLength(1) + 10) //+10 чтобы значения были двухзначные 11, 12, 13....
+    {
+        array[i, j] = n;
+        n++;
+        if (i <= j + 1 && i + j < array.GetLength(1) - 1)
+        {
+            j++;
+        }
+        else if (i < j && i + j >= array.GetLength(0) - 1)
+        {
+            i++;
+        }
+        else if (i >= j && i + j > array.GetLength(1) - 1)
+        {
+            j--;
+        }
+        else
+        {
+            i--;
+        }
+    }
+}
+
+int[,] array = new int[5, 5];
+
+if (array.GetLength(0) != array.GetLength(1))
+{
+    Console.WriteLine("Массив не квадратный");
+    return;
+}
+FillArray(array);
 PrintDoubleArray(array);
